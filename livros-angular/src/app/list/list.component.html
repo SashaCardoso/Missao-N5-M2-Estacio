@@ -1,0 +1,40 @@
+<p class='p-2 fw-bold fs-1'>List of Books</p>
+<table class='table'>
+    <thead>
+        <tr>
+            <td class='bg-dark text-light p-2 fw-bold'>
+                Title
+            </td>
+            <td class='bg-dark text-light p-2 fw-bold'>
+                Synopsis
+            </td>
+            <td class='bg-dark text-light p-2 fw-bold'>
+                Publisher
+            </td>
+            <td class='bg-dark text-light p-2 fw-bold'>
+                Authors
+            </td>
+        </tr>
+    </thead>
+    <tbody *ngFor="let bk of bookPromise | async">
+        <tr>
+            <td>
+                <p>{{bk.title}}</p>
+                <button class='btn btn-danger' (click)="deleteBook(bk._id)">Delete</button>
+            </td>
+            <td class='bg-light'>
+                <p>{{bk.synopsis}}</p>
+            </td>
+            <td>
+                <p>{{getName(bk.publisherId)}}</p>
+            </td>
+            <td class='text-start bg-light'>
+                <ul *ngFor="let author of bk.authors">
+                    <li>
+                        {{author}}
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

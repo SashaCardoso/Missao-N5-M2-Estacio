@@ -1,0 +1,23 @@
+<form class="container" (submit)="addBook()" ngNativeValidate>
+    <div class="mb-3 form-group">
+        <label>Title</label>
+        <input class="form-control" type="text" placeholder="Enter title" name="title" [(ngModel)]="book.title" required/>
+    </div>
+    <div class="mb-3 form-group">
+        <label>Synopsis</label>
+        <textarea class="form-control" placeholder="Enter synopsis" rows="3" name="synopsis" [(ngModel)]="book.synopsis" required></textarea>
+    </div>
+    <div class="mb-3 form-group">
+        <label>Publisher</label>
+        <select class="form-control" name="publisher" [(ngModel)]="form_Id" required>
+            <option value={{option.publisherId}} *ngFor="let option of publisher">
+                {{option.name}}
+            </option>
+        </select>
+    </div>
+    <div class="mb-3 form-group">
+        <label>Authors (1 per line)</label>
+        <textarea class="form-control" placeholder="Enter authors" rows="3" name="authors" [(ngModel)]="authors" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
